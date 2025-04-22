@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Information</title>
+    <link rel="stylesheet" href="PropertySale.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h2>Property Information</h2>
+        <form action="/submit_property" method="POST">
+
+            <div class="input-group">
+                <label for="pname">Property Name</label>
+                <input type="text" id="pname" name="pname" required>
+            </div>
+
+            <div class="input-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" placeholder="Enter description here..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+
+            <div class="input-group">
+                <label for="price">Price</label>
+                <input type="number" id="price" name="price" required>
+            </div>
+
+            <div class="input-group">
+                <label for="ptype">Property Type</label>
+                <select id="ptype" name="ptype" required>
+                    <option value="FarmHouses">FarmHouses</option>
+                    <option value="Villas">Villas</option>
+                    <option value="Estates">Estates</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="size_sqft">Size (sqft)</label>
+                <input type="number" id="size_sqft" name="size_sqft" required>
+            </div>
+
+            <div class="input-group">
+                <label for="zip_code">Zip Code</label>
+                <input type="text" id="zip_code" name="zip_code" required>
+            </div>
+
+            <input type="hidden" id="username" name="username">
+
+            <button type="submit">Submit Property</button>
+        </form>
+    </div>
+    <script>
+        // Ensure username is populated dynamically
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const username = urlParams.get('username');
+
+            if (username) {
+                const usernameField = document.getElementById('username');
+                if (usernameField) {
+                    usernameField.value = username;
+                }
+            }
+        };
+    </script>
+</body>
+
+</html>

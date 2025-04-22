@@ -1,0 +1,104 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #e9ecef; /* Light Gray */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.form-container {
+    background-color: #f8f5e4; /* Cream */
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Limit form width to 600px */
+    max-height: 90vh; /* Ensure form doesn't exceed 90% of the screen height */
+    overflow-y: auto; /* Allow scrolling if content exceeds container height */
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.6rem;
+    color: #1b4332; /* Forest Green */
+}
+
+/* Input Group Styles */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #1b4332; /* Forest Green */
+    display: block;
+    margin-bottom: 8px;
+}
+
+.input-group input, .input-group select, .input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    outline: none;
+    margin-bottom: 10px;
+    background-color: #ffffff; /* White */
+}
+
+.input-group input:focus, .input-group select:focus, .input-group textarea:focus {
+    border-color: #1b4332; /* Forest Green */
+}
+
+/* Textarea Styling */
+textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1b4332; /* Forest Green */
+    color: #f8f5e4; /* Cream */
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #d4a373; /* Tan */
+    transform: scale(1.05);
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    body {
+        padding: 10px; /* Reduce padding for smaller screens */
+    }
+
+    .form-container {
+        padding: 20px; /* Less padding on smaller screens */
+        max-height: 80vh; /* Adjust max height on smaller screens */
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+}

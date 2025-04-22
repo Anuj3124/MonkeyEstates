@@ -1,0 +1,173 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #f8fdf8; /* Light greenish-white background */
+    color: #333; /* Neutral dark gray for text */
+    line-height: 1.6;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #3a6351; /* Deep green for the navbar */
+    padding: 15px 30px;
+  }
+  
+  .navbar a {
+    margin-left: 20px;
+    color: #ffffff; /* White text for contrast */
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+  
+  .navbar a:hover {
+    color: #a8d5ba; /* Light green for hover effect */
+  }
+  
+  /* Center Page Section */
+  .centerpage {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: #ffffff; /* Clean white section for focus */
+    border-bottom: 5px solid #a8d5ba; /* Subtle green border at the bottom */
+    color: #333; /* Dark text for contrast */
+  }
+  
+  .centerpage h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #3a6351; /* Deep green for headers */
+  }
+  
+  .centerpage p {
+    margin: 10px auto;
+    font-size: 1.2rem;
+    max-width: 800px;
+  }
+  
+  .intro {
+    font-size: 1rem;
+    margin: 20px auto;
+    max-width: 700px;
+    color: #555; /* Slightly lighter gray for body text */
+  }
+  
+  #register button {
+    background-color: #5fb97b; /* Bright green for the button */
+    color: #ffffff;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+  }
+  
+  #register button:hover {
+    background-color: #4ea06d; /* Slightly darker green for hover */
+    transform: scale(1.05);
+  }
+  
+  /* About Us Section */
+  #AboutUs {
+    padding: 50px 20px;
+    background-color: #f8fdf8; /* Light greenish-white for section contrast */
+    color: #333;
+    text-align: left;
+  }
+  
+  #AboutUs h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #3a6351;
+    border-left: 5px solid #5fb97b; /* Bright green left border for section title */
+    padding-left: 10px;
+  }
+  
+  #AboutUs p {
+    font-size: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+  
+  /* FAQs Section */
+  #FAQ {
+    padding: 50px 20px;
+    background-color: #ffffff; /* White for a clean look */
+    text-align: left;
+  }
+  
+  #FAQ h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #3a6351;
+    border-left: 5px solid #5fb97b; /* Bright green left border for section title */
+    padding-left: 10px;
+  }
+  
+  #FAQ #ques {
+    font-weight: bold;
+    color: #3a6351;
+  }
+  
+  #FAQ span {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  #FAQ br {
+    margin-bottom: 15px;
+  }
+  
+  /* Footer (if required) */
+  footer {
+    background: #3a6351;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 20px;
+  }
+  
+  footer p {
+    font-size: 0.9rem;
+    color: #d8f3e0; /* Light green for footer text */
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    .centerpage h1 {
+      font-size: 2.5rem;
+    }
+  
+    .centerpage p {
+      font-size: 1rem;
+    }
+  
+    .MonekyEst {
+      font-size: 3rem;
+    }
+  
+    #AboutUs p,
+    #FAQ {
+      font-size: 0.9rem;
+    }
+  }
+  

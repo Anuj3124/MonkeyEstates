@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Listings</title>
+    <link rel="stylesheet" href="PropertyPage.css">
+</head>
+<body>
+    <header>
+        <h1>Monkey Estates</h1>
+        <a href="#" class="profile-text" id="profile-link">PROFILE</a>
+    </header>
+
+    <main>
+        <section id="listings">
+            <h2>Owned Properties</h2>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="search-city" placeholder="Search by City">
+                <input type="text" id="search-type" placeholder="Search by Type">
+            </div>
+
+            <div class="property-list">
+                <!-- Dynamic property cards will be inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container footer-container">
+            <p>&copy; 2024 Monkey Estates. All Rights Reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms of Service</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Fetch property data from the backend and display it
+        let properties = []; // To store all properties globally
+
+        async function loadProperties() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const username = urlParams.get("username");
+            if (!username) {
+                console.error("Username is required to fetch properties.");
+                return;
+            }
+            const response = await fetch(`/api/owned-properties?username=${encodeURIComponent(username)}`);
+            if (!response.ok) {
+                throw new Error(`Failed to load properties: ${response.status} ${response.statusText}`);
+            }
+            properties = await response.json();
+            displayProperties(properties); // Display all properties initially
+        }
+
+        function displayProperties(filteredProperties) {
+            const propertyList = document.querySelector('.property-list');
+            propertyList.innerHTML = ""; // Clear the list before appending
+
+            filteredProperties.forEach(property => {
+                const pNameSlug = property.pname.replace(/[\\\/:*?"<>|]/g, '').trim();
+                const propertyCard = `
+                <a href="/properties/${pNameSlug}.html" class="property-card">
+                    <div class="property-card-content">
+                        <h3 class="property-name">${property.pname}</h3>
+                        <div class="property-details">
+                            <p><strong>ID:</strong> ${property.pid}</p>
+                            <p><strong>Type:</strong> ${property.ptype}</p>
+                            <p><strong>Price:</strong> ${property.price}$</p>
+                            <p><strong>City:</strong> ${property.city}</p>
+                        </div>
+                    </div>
+                </a>
+                `;
+                propertyList.innerHTML += propertyCard;
+            });
+        }
+
+        // Filter properties based on search inputs
+        function filterProperties() {
+            const cityFilter = document.getElementById("search-city").value.toLowerCase();
+            const typeFilter = document.getElementById("search-type").value.toLowerCase();
+
+            const filtered = properties.filter(property => {
+                const cityMatches = property.city.toLowerCase().includes(cityFilter);
+                const typeMatches = property.ptype.toLowerCase().includes(typeFilter);
+                return cityMatches && typeMatches;
+            });
+
+            displayProperties(filtered); // Display the filtered properties
+        }
+
+        // Add event listeners to search inputs
+        document.getElementById("search-city").addEventListener("input", filterProperties);
+        document.getElementById("search-type").addEventListener("input", filterProperties);
+
+        // Call the function to load properties on page load
+        loadProperties();
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get("username");
+
+        if (username) {
+            // Update the Profile link to redirect to the profile page with the username
+            const profileLink = document.getElementById("profile-link");
+            profileLink.href = `/profile?username=${encodeURIComponent(username)}`;
+        } else {
+            console.error("Username not found in query parameters.");
+        }
+    </script>
+</body>
+</html>
+

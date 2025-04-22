@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="RegisterP.css" />
+    <title>Registration</title>
+  </head>
+  <body>
+    <section class="container">
+      <header>REGISTRATION</header>
+      <form action="/add-user" method="POST" class="form">
+        <div class="input-box">
+          <label>Full Name</label>
+          <input type="text" name="fullname" placeholder="Enter Full name" required />
+        </div>
+        <div class="input-box">
+          <label>Aadhar Number</label>
+          <input type="number" name="aadhar" placeholder="Enter Aadhar Number" required />
+        </div>
+        <div class="input-box">
+          <label>Username</label>
+          <input type="text" name="username" placeholder="Enter Username" required />
+        </div>
+        <div class="input-box">
+          <label>Password</label>
+          <input type="password" name="password" placeholder="Enter Password" required />
+        </div>
+        <div class="input-box">
+          <label>Email Address</label>
+          <input type="text" name="email" placeholder="Enter email address" required />
+        </div>
+        <div class="column">
+          <div class="input-box">
+            <label>Phone Number</label>
+            <input type="number" name="phonenumber" placeholder="Enter phone number" required />
+          </div>
+          <div class="input-box">
+            <label>Date Of Birth</label>
+            <input type="date" name="dob" placeholder="Enter birth date" required />
+          </div>
+        </div>
+        <div class="input-box address">
+          <label>Address</label>
+          <input type="text" name="address" placeholder="Enter street address" required />
+          <div class="column">
+            <input type="text" name="region" placeholder="Enter your region" required />
+            <input type="number" name="postalcode" placeholder="Enter postal code" required />
+          </div>
+        </div>
+        <button type="submit">SUBMIT</button>
+      </form>
+    </section>
+  </body>
+</html>
